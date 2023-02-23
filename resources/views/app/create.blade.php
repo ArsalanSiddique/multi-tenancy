@@ -61,7 +61,7 @@
                             @endif
                         </div>
 
-                        <button class="btn btn-primary mt-2">Register</button>
+                        <button class="btn btn-secondary mt-2">Register</button>
                     </form>
 
                 </div>

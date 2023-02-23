@@ -28,20 +28,20 @@ class TenantController extends Controller
         ]);
 
         $subdomain      = $request->subdomain;
-        $subdomain_link = $subdomain.'.locahost';
+        $subdomain_link = $subdomain.'.localhost';
 
         $tenant = \App\Models\Tenant::create(['id' => $subdomain]);
         $tenant->domains()->create(['domain' => $subdomain_link]);
 
         // $tenant = \App\Models\Tenant::create(['id' => 'foo']);
         // $tenant->domains()->create(['domain' => 'foo.localhost']);
-        
 
         $tenant->run(function () {
             User::factory(rand(1,10))->create();
         });
 
-        return redirect()->back()->with('success', 'App registered successfully.');
+        return redirect($subdomain_link.':8000');
+        // return redirect()->back()->with('success', 'App registered successfully.');
 
     }
 }

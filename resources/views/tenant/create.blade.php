@@ -23,11 +23,11 @@
                     @endforeach
 
                     <h5 class="card-title">Register new app</h5>
-                    <form action="{{ route('app.store') }}" method="POST">
+                    <form action="{{ route('tenant.store') }}" method="POST">
 
                         @csrf
 
-                        <div class="forn-group">
+                        <div class="forn-group mt-3">
                             <label for="name">App Name</label>
                             <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror">
 
@@ -39,7 +39,7 @@
 
                         </div>
 
-                        <div class="forn-group">
+                        <div class="forn-group mt-3">
                             <label for="subdomain">App subdomain</label>
                             <input type="text" name="subdomain" id="subdomain" value="{{ old('subdomain') }}" class="form-control @error('subdomain') is-invalid @enderror">
 
@@ -50,7 +50,7 @@
                             @endif
                         </div>
 
-                        <div class="forn-group">
+                        <div class="forn-group mt-3">
                             <label for="users">Create dummy users</label>
                             <input type="number" name="users" max="10" id="users" value="{{ old('users') }}" class="form-control @error('users') is-invalid @enderror">
 
@@ -61,7 +61,7 @@
                             @endif
                         </div>
 
-                        <button class="btn btn-secondary mt-2">Register</button>
+                        <button class="btn btn-dark px-4 mt-4">Submit</button>
                     </form>
 
                 </div>

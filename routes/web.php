@@ -18,12 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('app', App\Http\Controllers\TenantController::class);
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('tenant', App\Http\Controllers\TenantController::class);
+    Route::resource('module', App\Http\Controllers\ModuleController::class);
+});
